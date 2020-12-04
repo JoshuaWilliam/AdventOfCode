@@ -13,7 +13,7 @@ def read_file(filename):
         return rows
 
 
-def mark_current_spot(rows, right, down):
+def mark_spots(rows, right, down):
     tree_encounters = 0
     row_pos = 0
     col_pos = 0
@@ -42,6 +42,6 @@ if __name__ == '__main__':
     for right_down in right_downs:
         right_steps = (right_down.get('right'))
         down_steps = (right_down.get('down'))
-        total_encounters *= mark_current_spot(data, right_steps, down_steps)
+        total_encounters *= mark_spots(data, right_steps, down_steps)
 
     print(total_encounters)
