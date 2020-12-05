@@ -22,8 +22,9 @@ def calc_final(lower, upper, seat):
             lower = (upper + 1 + lower) / 2
         else:
             upper -= (upper + 1 - lower) / 2
+
     if lower == upper:
-        return lower
+        return int(lower)
     else:
         print('YOU DONE GOOFED')
 
@@ -48,6 +49,9 @@ def get_seat_ids(data):
 
 if __name__ == '__main__':
     file = read_file('input.txt')
-    all_id_s = get_seat_ids(file)
-    print(max(all_id_s))
+    seat_ids = get_seat_ids(file)
 
+    id_range = range(min(seat_ids), max(seat_ids) + 1)
+    for seat_id in id_range:
+        if seat_id not in seat_ids:
+            print(seat_id)
